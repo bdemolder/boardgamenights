@@ -1,13 +1,9 @@
-# bgnwebapi
-
-a [Sails](http://sailsjs.org) application
-
 # Requirements
 
-- Git
-- Node (8.4.0+ - https://nodejs.org/en/)
-- Sails (0.12+ - http://sailsjs.com/)
-- PostgreSQL (Originally made against a 9.6 - https://www.postgresql.org/)
+- [Git](https://git-scm.com/)
+- [Node](https://nodejs.org/) (8.4.0+)
+- [Sails](http://sailsjs.org) (0.12+)
+- [PostgreSQL](https://www.postgresql.org/) (Originally made against a 9.6)
 
 # How to debug/deploy locally
 
