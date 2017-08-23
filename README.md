@@ -36,5 +36,6 @@ module.exports = {
 - Please write proper and good commit messages ([Guide](https://github.com/erlang/otp/wiki/writing-good-commit-messages))
 - local.js will always be ignored, the DB connection is injected through heroku, so no need to worry about the DB connection
 - Use spaces, not tabs, 2 spaces = 1 tab
+- Please do check the 'Issues' tab in github, to make sure noone else is working on it. And if yo uare working on something, assign yourself to it.
 
 If anything forementioned needs revision, we will listen.
