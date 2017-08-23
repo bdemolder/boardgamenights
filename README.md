@@ -31,6 +31,10 @@ module.exports = {
 
 # How to contribute
 
-- Do not commit/push directly on master, this branch is tied to a heroku, this should remain stable at all times.
+- Do not commit/push directly on master, this branch is tied to a heroku, this should remain stable at all times. So work with a seperate branch, and commit all you want there, then create pull request and approve that one yourself or if you are unsure, ask one of the other collaborators.
+- Squash merge of the pull request is allowed, to keep the history a bit cleaner
+- Please write proper and good commit messages ([Guide](https://github.com/erlang/otp/wiki/writing-good-commit-messages))
 - local.js will always be ignored, the DB connection is injected through heroku, so no need to worry about the DB connection
 - Use spaces, not tabs, 2 spaces = 1 tab
+
+If anything forementioned needs revision, we will listen.
