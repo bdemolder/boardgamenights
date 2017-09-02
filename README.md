@@ -9,7 +9,7 @@
 
 - Clone the git code
 - Setup a database in PostgreSQL
-- Add local.js file in /config with following:
+- Add a new __local.js__ file in the __/config folder__ with following:
 ```javascript
 module.exports = {
    environment: process.env.NODE_ENV || 'development',
