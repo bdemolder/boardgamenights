@@ -22,6 +22,10 @@ module.exports = {
        password: 'Your password for the username',
        database: 'Your database name'
      }
+   },  
+   facebook: {
+     clientID: 'ID of the facebook app',
+     clientSecret: 'secret of the facebook app'
    }
 }
 ```
