@@ -38,7 +38,21 @@ module.exports.routes = {
   'GET /boardgamenight/calendar': {
     controller: 'BoardgamenightController',
     action: 'getCalendar'
-  }
+  },
+
+  // authentication
+  '/login': {
+    controller: 'AuthController',
+    action: 'login'
+  },
+  '/logout': {
+    controller: 'AuthController',
+    action: 'logout'
+  },
+  '/home': {
+    controller: 'HomeController',
+    action: 'index'
+  },
 
   /***************************************************************************
   *                                                                          *

@@ -18,6 +18,10 @@ module.exports = {
         return uuid();
       }
     },
+    facebook: {
+      type: 'string',
+      size: 100
+    },
     fullName: {
       type: 'string',
       size: 200,
@@ -25,18 +29,15 @@ module.exports = {
     },
     street: {
       type: 'string',
-      size: 200,
-      required: true
+      size: 200
     },
     postcode: {
       type: 'string',
-      size: 100,
-      required: true
+      size: 100
     },
     city: {
       type: 'string',
-      size: 200,
-      required: true
+      size: 200
     },
     hostedNightsCount: {
       type: 'integer',
