@@ -1,7 +1,8 @@
 # Requirements
 
 - [Git](https://git-scm.com/)
-- [Node](https://nodejs.org/) (8.4.0+)
+- [yarn](https://yarnpkg.com/en/docs/install) (1.2.1+)
+- [Node](https://nodejs.org/) (8.8.0+)
 - [Sails](http://sailsjs.org) (0.12+)
 - [PostgreSQL](https://www.postgresql.org/) (Originally made against a 9.6)
 
