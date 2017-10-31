@@ -2,6 +2,10 @@
   "name": "bgnwebapp",
   "private": true,
   "version": "0.0.1",
+  "engines": {
+    "node": "8.8.1",
+    "yarn": "1.2.1"
+  },
   "description": "The Boardgame Nights web application",
   "keywords": [],
   "dependencies": {
