@@ -26,6 +26,18 @@ module.exports = {
       type: 'integer',
       required: true
     },
+    boardgameGeekId: {
+      type: 'integer',
+      required: false
+    },
+    boardgameGeekLink: {
+      type: 'string',
+      required: false
+    },
+    boardgameGeekImage: {
+      type: 'string',
+      required: false
+    },
     street: {
       type: 'string',
       size: 200,

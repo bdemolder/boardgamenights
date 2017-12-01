@@ -35,9 +35,13 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
-  'GET /boardgamenight/calendar': {
+  'GET /calendar': {
     controller: 'BoardgamenightController',
-    action: 'getCalendar'
+    action: 'getCalendar',
+    cors: {
+      origin: 'http://localhost:4200',
+      methods: 'GET,PUT,POST,OPTIONS,HEAD'
+    }
   },
 
   // authentication
