@@ -1,0 +1,72 @@
+<div id="nightView" ng-controller="NightController">
+
+  <div class="night-form">
+    <form>
+      <div class="row night-row">
+        <div class="col-md-12">
+          <div class="page-header bgn-header">
+            <h1>Host a board game</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="row night-row">
+        <div class="col-md-2 text-right night-row-header">Board Game Name</div>
+        <div class="col-md-10">
+          <input type="text" ng-model="boardgamenight.boardGameName" class="form-control" id="name" placeholder="Name">
+        </div>
+      </div>
+
+      <div class="row night-row">
+        <div class="col-md-2 text-right night-row-header">Date</div>
+        <div class="col-md-10">
+          <p class="input-group bgn-date-picker">
+            <input type="text" class="form-control" ng-click="openDatePicker()" uib-datepicker-popup="dd/MM/yyyy" placeholder="dd/mm/yyyy" ng-model="boardgamenight.date" is-open="datePopup.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="openDatePicker()"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <div class="row night-row">
+        <div class="col-md-2 text-right night-row-header">Time</div>
+        <div class="col-md-10">
+          <div uib-timepicker ng-model="boardgamenight.time" show-meridian="false"></div>
+        </div>
+      </div>
+
+      <div class="row night-row">
+        <div class="col-md-2 text-right night-row-header">Available seats</div>
+        <div class="col-md-5">
+          <input type="number" ng-model="boardgamenight.availablePlayerCount" class="form-control" id="availablePlayerCount" placeholder="Available seats" min="1" max="{{ boardgamenight.maximumPlayerCount }}">
+        </div>
+        <div class="col-md-5">
+          <input type="number" ng-model="boardgamenight.maximumPlayerCount" class="form-control" id="maximumPlayerCount" placeholder="Maximum seats" min="1" max="100">
+        </div>
+      </div>
+
+      <div class="row night-row complexity-row">
+        <div class="col-md-2 text-right night-row-header large-info"><span class="glyphicon glyphicon-question-sign" uib-popover-template="'/pages/starRatingDescription.html'" popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> Complexity</div>
+        <div class="col-md-10">
+          <span uib-rating max="5" ng-model="boardgamenight.complexity" on-leave="overStar = null" titles="complexities"></span>
+        </div>
+      </div>
+
+      <div class="row night-row">
+        <div class="col-md-2 text-right night-row-header large-info"><span class="glyphicon glyphicon-question-sign" uib-popover-template="'/pages/boardGameGeekDescription.html'" popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> BoardGameGeek Id</div>
+        <div class="col-md-10">
+          <input type="text" ng-model="boardgamenight.boardGameGeekId" class="form-control" id="boardGameGeekId" placeholder="BoardGameGeek Id">
+        </div>
+      </div>
+
+      <div class="row night-row button-row">
+        <div class="col-sm-offset-2 col-md-10 text-left">
+          <button type="submit" class="btn btn-primary btn-lg" ng-click="update(user)" value="Save">Save</button>
+          <button type="button" class="btn btn-warning" ng-click="reset()" value="Reset">Reset</button>
+          <button type="button" class="btn btn-info" ng-click="go('/calendar')" value="Back">Back</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

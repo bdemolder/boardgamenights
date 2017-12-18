@@ -32,10 +32,22 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
+  "r|^\/(?!.*api).*|": {
+    view: 'main',
+    skipAssets: true
   },
-  'GET /calendar': {
+
+  /***************************************************************************
+  *                                                                          *
+  * Custom routes here...                                                    *
+  *                                                                          *
+  * If a request to a URL doesn't match any of the custom routes above, it   *
+  * is matched against Sails route blueprints. See `config/blueprints.js`    *
+  * for configuration options and examples.                                  *
+  *                                                                          *
+  ***************************************************************************/
+
+  'GET /api/calendar': {
     controller: 'BoardgamenightController',
     action: 'getCalendar',
     cors: {
@@ -56,16 +68,5 @@ module.exports.routes = {
   '/home': {
     controller: 'HomeController',
     action: 'index'
-  },
-
-  /***************************************************************************
-  *                                                                          *
-  * Custom routes here...                                                    *
-  *                                                                          *
-  * If a request to a URL doesn't match any of the custom routes above, it   *
-  * is matched against Sails route blueprints. See `config/blueprints.js`    *
-  * for configuration options and examples.                                  *
-  *                                                                          *
-  ***************************************************************************/
-
+  }
 };

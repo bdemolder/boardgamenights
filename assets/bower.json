@@ -1,0 +1,30 @@
+{
+  "name": "bgnwebsite",
+  "homepage": "https://github.com/bdemolder/boardgamenights",
+  "authors": [
+    "Benjamin Demolder <benjamin.demolder@gmail.com>"
+  ],
+  "description": "The front-end",
+  "main": "index.html",
+  "keywords": [
+    "bgn"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "~2.5.0",
+    "angular-route": "~1.6.7",
+    "angular": "~1.6.7",
+    "angular-mocks": "~1.6.7",
+    "jquery": "~3.2.1",
+    "bootstrap": "~3.3.7",
+    "angular-moment": "~1.2.0"
+  }
+}
