@@ -18,6 +18,17 @@ bgnwebapp.controller('CalendarController', ['$scope', '$rootScope', '$location',
     }
   };
 
+  var difficulties = {
+    1: 'green',
+    2: 'darkcyan',
+    3: 'yellowgreen',
+    4: 'orange',
+    5: 'red'
+  }
+  $scope.getComplexityColorClass = function(boardgamenight) {
+    return difficulties[boardgamenight.complexity];
+  }
+
   $scope.isOwner = function (boardgamenight) {
     return boardgamenight.organisator.id === "fd0b9c8f-98b2-439c-b2fb-56145eebca8a";
   };

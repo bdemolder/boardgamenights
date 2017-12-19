@@ -61,3 +61,41 @@ body {
 .info-circle {
   color: #31b0d5;
 }
+
+input {
+  &:not(.ng-pristine) {
+    &.ng-invalid  {
+      border-color: #a94442;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+
+      &:focus {
+        border-color: #843534;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483;
+      }
+    }
+  }
+}
+
+.bgn-error {
+  color: #a94442;
+}
+
+.bgn-required {
+  color: red;
+}
+
+.bgn-not-required {
+  color: transparent;
+}
+
+.bgn-calendar-error {
+  color: #a94442;
+  border-color: #a94442;
+
+  &:hover {
+    color: #a94442;
+    border-color: #a94442;
+  }
+}

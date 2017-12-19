@@ -17,7 +17,7 @@
       <tr ng-repeat="boardgamenight in calendar" class="calendar-row {{ getBoardGameNightFullClass(boardgamenight) }}">
         <th scope="row">{{ boardgamenight.dateTime | date : 'dd/MM/yy - HH:mm'}}</th>
         <td>{{ boardgamenight.boardgameName }}</td>
-        <td class="complexity"><span uib-rating max="5" ng-model="boardgamenight.complexity" read-only="true" on-leave="overStar = null" titles="['', '', '', '', '']" ></span></td>
+        <td class="complexity {{ getComplexityColorClass(boardgamenight) }}"><span uib-rating max="5" ng-model="boardgamenight.complexity" read-only="true" on-leave="overStar = null" titles="['', '', '', '', '']" ></span></td>
         <td class="seats">
           <div ng-if="!isOwner(boardgamenight)">{{ boardgamenight.players.length }} / {{ boardgamenight.availablePlayerCount }}</div>
           <div ng-if="isOwner(boardgamenight)" ng-click="openCurrentPlayersModal(boardgamenight)" class="hover-container">

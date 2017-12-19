@@ -48,6 +48,10 @@ module.exports = {
 
       return res.json(boardgamenights);
     });
+  },
+
+  signup: function(req, res) {
+    
   }
 };
 

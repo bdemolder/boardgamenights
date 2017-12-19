@@ -1,5 +1,6 @@
 bgnwebapp.controller('NightController', ['$scope', '$rootScope', '$location', '$routeParams', 'CalendarService', function($scope, $rootScope, $location, $routeParams, CalendarService) {
   $scope.master = {};
+  $scope.boardgamenight = {};
   $scope.complexities = [
     'Light - ideal for absolute beginners',
     'Light to Medium - still great for absolute beginners',
@@ -27,6 +28,8 @@ bgnwebapp.controller('NightController', ['$scope', '$rootScope', '$location', '$
   };
 
   $scope.update = function(boardgamenight) {
+    if (!boardgamenight) return;
+
     $scope.master = angular.copy(boardgamenight);
     if (boardgamenight.id) {
       CalendarService.modifyBoardGameNight(boardgamenight).then(function(response) {

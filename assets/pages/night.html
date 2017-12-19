@@ -1,7 +1,7 @@
 <div id="nightView" ng-controller="NightController">
 
   <div class="night-form">
-    <form>
+    <form name="bgnForm" novalidate>
       <div class="row night-row">
         <div class="col-md-12">
           <div class="page-header bgn-header">
@@ -11,33 +11,33 @@
       </div>
 
       <div class="row night-row">
-        <div class="col-md-2 text-right night-row-header">Board Game Name</div>
+        <div class="col-md-2 text-right night-row-header" ng-class="{'bgn-error': (bgnForm.name.$invalid && !bgnForm.name.$pristine) }">Board Game Name <span class="bgn-required">*</span></div>
         <div class="col-md-10">
-          <input type="text" ng-model="boardgamenight.boardgameName" class="form-control" id="name" placeholder="Name">
+          <input type="text" ng-model="boardgamenight.boardgameName" class="form-control" name="name" placeholder="Name" required>
         </div>
       </div>
 
       <div class="row night-row">
-        <div class="col-md-2 text-right night-row-header large-info"><span class="glyphicon glyphicon-question-sign info-circle" uib-popover-template="'/pages/boardGameGeekDescription.html'" popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> BoardGameGeek Id</div>
+        <div class="col-md-2 text-right night-row-header large-info"><span class="glyphicon glyphicon-question-sign info-circle" uib-popover-template="'/pages/boardGameGeekDescription.html'" popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> BoardGameGeek Id <span class="bgn-not-required">*</span></div>
         <div class="col-md-10">
           <input type="text" ng-model="boardgamenight.boardgameGeekId" class="form-control" id="boardGameGeekId" placeholder="BoardGameGeek Id">
         </div>
       </div>
 
       <div class="row night-row complexity-row">
-        <div class="col-md-2 text-right night-row-header large-info"><span class="glyphicon glyphicon-question-sign info-circle" uib-popover-template="'/pages/starRatingDescription.html'" popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> Complexity</div>
+        <div class="col-md-2 text-right night-row-header large-info" ng-class="{'bgn-error': (bgnForm.complexity.$invalid && !bgnForm.complexity.$pristine) }"><span class="glyphicon glyphicon-question-sign info-circle" uib-popover-template="'/pages/starRatingDescription.html'" popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> Complexity <span class="bgn-required">*</span></div>
         <div class="col-md-10">
-          <span uib-rating max="5" ng-model="boardgamenight.complexity" on-leave="overStar = null" titles="complexities"></span>
+          <span uib-rating max="5" name="complexity" ng-model="boardgamenight.complexity" on-leave="overStar = null" titles="complexities" required></span>
         </div>
       </div>
-
+      
       <div class="row night-row">
-        <div class="col-md-2 text-right night-row-header">Date</div>
+        <div class="col-md-2 text-right night-row-header" ng-class="{'bgn-error': (bgnForm.date.$invalid && !bgnForm.date.$pristine) }">Date <span class="bgn-required">*</span></div>
         <div class="col-md-2">
           <p class="input-group bgn-date-picker">
-            <input type="text" class="form-control" ng-click="openDatePicker()" uib-datepicker-popup="dd/MM/yyyy" placeholder="dd/mm/yyyy" ng-model="boardgamenight.dateTime" is-open="datePopup.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+            <input type="text" class="form-control" name="date" ng-click="openDatePicker()" uib-datepicker-popup="dd/MM/yyyy" placeholder="dd/mm/yyyy" ng-model="boardgamenight.dateTime" is-open="datePopup.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close"/>
             <span class="input-group-btn">
-              <button type="button" class="btn btn-default" ng-click="openDatePicker()"><i class="glyphicon glyphicon-calendar"></i></button>
+              <button type="button" class="btn btn-default" ng-click="openDatePicker()" ng-class="{'bgn-calendar-error': (bgnForm.date.$invalid && !bgnForm.date.$pristine) }"><i class="glyphicon glyphicon-calendar"></i></button>
             </span>
           </p>
         </div>
@@ -45,48 +45,48 @@
       </div>
 
       <div class="row night-row">
-        <div class="col-md-2 text-right night-row-header">Time</div>
+        <div class="col-md-2 text-right night-row-header" ng-class="{'bgn-error': (bgnForm.date.$invalid && !bgnForm.date.$pristine) }">Time <span class="bgn-required">*</span></div>
         <div class="col-md-10">
           <div uib-timepicker ng-model="boardgamenight.dateTime" show-meridian="false"></div>
         </div>
       </div>
 
       <div class="row night-row">
-        <div class="col-md-2 text-right night-row-header"><span class="glyphicon glyphicon-question-sign info-circle" uib-popover="The amount of players you are looking for." popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> Available seats</div>
+        <div class="col-md-2 text-right night-row-header" ng-class="{'bgn-error': (bgnForm.availablePlayerCount.$invalid && !bgnForm.availablePlayerCount.$pristine) }"><span class="glyphicon glyphicon-question-sign info-circle" uib-popover="The amount of players you are looking for." popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> Available seats <span class="bgn-required">*</span></div>
         <div class="col-md-2">
-          <input type="number" ng-model="boardgamenight.availablePlayerCount" class="form-control" id="availablePlayerCount" placeholder="Available seats" min="1" max="{{ boardgamenight.maximumPlayerCount }}">
+          <input type="number" ng-model="boardgamenight.availablePlayerCount" class="form-control" name="availablePlayerCount" placeholder="Available seats" min="1" max="{{ boardgamenight.maximumPlayerCount }}" required>
         </div>
         <div class="col-md-8"></div>
       </div>
       
       <div class="row night-row">
-        <div class="col-md-2 text-right night-row-header"><span class="glyphicon glyphicon-question-sign info-circle" uib-popover="The total amount, including you and others you reserved." popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> Total seats</div>
+        <div class="col-md-2 text-right night-row-header" ng-class="{'bgn-error': (bgnForm.totalPlayerCount.$invalid && !bgnForm.totalPlayerCount.$pristine) }"><span class="glyphicon glyphicon-question-sign info-circle" uib-popover="The total amount, including you and others you reserved." popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> Total seats <span class="bgn-required">*</span></div>
         <div class="col-md-2">
-          <input type="number" ng-model="boardgamenight.totalPlayerCount" class="form-control" id="totalPlayerCount" placeholder="Maximum seats" min="1" max="100">
+          <input type="number" ng-model="boardgamenight.totalPlayerCount" class="form-control" name="totalPlayerCount" placeholder="Maximum seats" min="1" max="100" required>
         </div>
         <div class="col-md-8"></div>
       </div>
 
       <div class="row night-row">
-        <div class="col-md-2 text-right night-row-header">Street</div>
+        <div class="col-md-2 text-right night-row-header" ng-class="{'bgn-error': (bgnForm.street.$invalid && !bgnForm.street.$pristine) }">Street <span class="bgn-required">*</span></div>
         <div class="col-md-10">
-          <input type="text" ng-model="boardgamenight.street" class="form-control" id="street" placeholder="Street + Number">
+          <input type="text" ng-model="boardgamenight.street" class="form-control" name="street" placeholder="Street + Number" required>
         </div>
       </div>
 
       <div class="row night-row">
-        <div class="col-md-2 text-right night-row-header">Postal Code & City</div>
+        <div class="col-md-2 text-right night-row-header" ng-class="{'bgn-error': ((bgnForm.postcode.$invalid && !bgnForm.postcode.$pristine) || (bgnForm.city.$invalid && !bgnForm.city.$pristine)) }">Postal Code & City <span class="bgn-required">*</span></div>
         <div class="col-md-2">
-          <input type="text" ng-model="boardgamenight.postcode" class="form-control" id="postcode" placeholder="Postal Code">
+          <input type="text" ng-model="boardgamenight.postcode" class="form-control" name="postcode" placeholder="Postal Code" required>
         </div>
         <div class="col-md-8">
-          <input type="text" ng-model="boardgamenight.city" class="form-control" id="city" placeholder="City">
+          <input type="text" ng-model="boardgamenight.city" class="form-control" name="city" placeholder="City" required>
         </div>
       </div>
 
       <div class="row night-row button-row">
         <div class="col-sm-offset-2 col-md-10 text-left">
-          <button type="submit" class="btn btn-primary btn-lg" ng-click="update(boardgamenight)" value="Save">Save</button>
+          <button type="submit" class="btn btn-primary btn-lg" ng-click="update(boardgamenight)" ng-disabled="bgnForm.$invalid" value="Save">Save</button>
           <button type="button" class="btn btn-warning" ng-click="reset()" value="Reset">Reset</button>
           <button type="button" class="btn btn-info" ng-click="go('/calendar')" value="Back">Back</button>
         </div>
