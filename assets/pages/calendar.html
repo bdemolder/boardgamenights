@@ -6,7 +6,7 @@
           <button type="button" ng-click="go('/night')" class="btn btn-warning btn-add-night" uib-popover="Host new board game night" popover-trigger="'mouseenter'" popover-placement="right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
         </th>
         <th scope="col">Board Game</th>
-        <th class="complexity large-info" scope="col">Complexity <span class="glyphicon glyphicon-question-sign" uib-popover-template="'/pages/starRatingDescription.html'" popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span></th>
+        <th class="complexity large-info" scope="col">Complexity <span class="glyphicon glyphicon-question-sign info-circle" uib-popover-template="'/pages/starRatingDescription.html'" popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span></th>
         <th class="seats" scope="col">Seats</th>
         <th scope="col">Location</th>
         <th scope="col">Organisator</th>
@@ -18,7 +18,17 @@
         <th scope="row">{{ boardgamenight.dateTime | date : 'dd/MM/yy - HH:mm'}}</th>
         <td>{{ boardgamenight.boardgameName }}</td>
         <td class="complexity"><span uib-rating max="5" ng-model="boardgamenight.complexity" read-only="true" on-leave="overStar = null" titles="['', '', '', '', '']" ></span></td>
-        <td class="seats">{{ boardgamenight.players.length }} / {{ boardgamenight.availablePlayerCount }}</td>
+        <td class="seats">
+          <div ng-if="!isOwner(boardgamenight)">{{ boardgamenight.players.length }} / {{ boardgamenight.availablePlayerCount }}</div>
+          <div ng-if="isOwner(boardgamenight)" ng-click="openComponentModal(boardgamenight)" class="current-players-container">
+            <span class="current-players-link">{{ boardgamenight.players.length }} / {{ boardgamenight.availablePlayerCount }}</span>
+            <div class="middle">
+              <div class="eye"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></div>
+            </div>
+          </div>
+
+          <!-- <a ng-if="isOwner(boardgamenight)" ng-click="openComponentModal(boardgamenight)" class="current-players-link">{{ boardgamenight.players.length }} / {{ boardgamenight.availablePlayerCount }}</a> -->
+        </td>
         <td>{{ boardgamenight.city }}</td>
         <td>{{ boardgamenight.organisator.fullName }}</td>
         <td class="actions">

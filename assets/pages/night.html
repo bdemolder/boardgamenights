@@ -38,7 +38,7 @@
       </div>
 
       <div class="row night-row">
-        <div class="col-md-2 text-right night-row-header"><span class="glyphicon glyphicon-question-sign" uib-popover="The amount of players you are looking for." popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> Available seats</div>
+        <div class="col-md-2 text-right night-row-header"><span class="glyphicon glyphicon-question-sign info-circle" uib-popover="The amount of players you are looking for." popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> Available seats</div>
         <div class="col-md-2">
           <input type="number" ng-model="boardgamenight.availablePlayerCount" class="form-control" id="availablePlayerCount" placeholder="Available seats" min="1" max="{{ boardgamenight.maximumPlayerCount }}">
         </div>
@@ -46,7 +46,7 @@
       </div>
       
       <div class="row night-row">
-        <div class="col-md-2 text-right night-row-header"><span class="glyphicon glyphicon-question-sign" uib-popover="The total amount, including you and others you reserved." popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> Total seats</div>
+        <div class="col-md-2 text-right night-row-header"><span class="glyphicon glyphicon-question-sign info-circle" uib-popover="The total amount, including you and others you reserved." popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> Total seats</div>
         <div class="col-md-2">
           <input type="number" ng-model="boardgamenight.totalPlayerCount" class="form-control" id="totalPlayerCount" placeholder="Maximum seats" min="1" max="100">
         </div>
@@ -54,14 +54,14 @@
       </div>
 
       <div class="row night-row complexity-row">
-        <div class="col-md-2 text-right night-row-header large-info"><span class="glyphicon glyphicon-question-sign" uib-popover-template="'/pages/starRatingDescription.html'" popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> Complexity</div>
+        <div class="col-md-2 text-right night-row-header large-info"><span class="glyphicon glyphicon-question-sign info-circle" uib-popover-template="'/pages/starRatingDescription.html'" popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> Complexity</div>
         <div class="col-md-10">
           <span uib-rating max="5" ng-model="boardgamenight.complexity" on-leave="overStar = null" titles="complexities"></span>
         </div>
       </div>
 
       <div class="row night-row">
-        <div class="col-md-2 text-right night-row-header large-info"><span class="glyphicon glyphicon-question-sign" uib-popover-template="'/pages/boardGameGeekDescription.html'" popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> BoardGameGeek Id</div>
+        <div class="col-md-2 text-right night-row-header large-info"><span class="glyphicon glyphicon-question-sign info-circle" uib-popover-template="'/pages/boardGameGeekDescription.html'" popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> BoardGameGeek Id</div>
         <div class="col-md-10">
           <input type="text" ng-model="boardgamenight.boardgameGeekId" class="form-control" id="boardGameGeekId" placeholder="BoardGameGeek Id">
         </div>
