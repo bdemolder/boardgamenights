@@ -28,9 +28,15 @@ bgnwebapp.controller('NightController', ['$scope', '$rootScope', '$location', '$
 
   $scope.update = function(boardgamenight) {
     $scope.master = angular.copy(boardgamenight);
-    CalendarService.addBoardGameNight(boardgamenight).then(function(response) {
-      $scope.go('/calendar');
-    });
+    if (boardgamenight.id) {
+      CalendarService.modifyBoardGameNight(boardgamenight).then(function(response) {
+        $scope.go('/calendar');
+      });
+    } else {
+      CalendarService.addBoardGameNight(boardgamenight).then(function(response) {
+        $scope.go('/calendar');
+      });
+    }
   };
 
   $scope.reset = function() {
