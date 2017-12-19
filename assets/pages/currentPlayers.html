@@ -4,7 +4,7 @@
   </div>
   <div class="modal-body" id="modal-body">
     <ul class="list-group">
-      <li class="list-group-item list-group-item-info">You and {{ $ctrl.getHostPlayerCountString() }}</li>
+      <li class="list-group-item list-group-item-info">You{{ $ctrl.getHostPlayerCountString() }}</li>
       <li class="list-group-item" ng-repeat="player in $ctrl.boardgamenight.players">{{ player.fullName }}</li>
     </ul>
   </div>
