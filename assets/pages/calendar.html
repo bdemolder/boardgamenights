@@ -20,16 +20,21 @@
         <td class="complexity"><span uib-rating max="5" ng-model="boardgamenight.complexity" read-only="true" on-leave="overStar = null" titles="['', '', '', '', '']" ></span></td>
         <td class="seats">
           <div ng-if="!isOwner(boardgamenight)">{{ boardgamenight.players.length }} / {{ boardgamenight.availablePlayerCount }}</div>
-          <div ng-if="isOwner(boardgamenight)" ng-click="openComponentModal(boardgamenight)" class="current-players-container">
+          <div ng-if="isOwner(boardgamenight)" ng-click="openCurrentPlayersModal(boardgamenight)" class="hover-container">
             <span class="current-players-link">{{ boardgamenight.players.length }} / {{ boardgamenight.availablePlayerCount }}</span>
             <div class="middle">
               <div class="eye"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></div>
             </div>
           </div>
-
-          <!-- <a ng-if="isOwner(boardgamenight)" ng-click="openComponentModal(boardgamenight)" class="current-players-link">{{ boardgamenight.players.length }} / {{ boardgamenight.availablePlayerCount }}</a> -->
         </td>
-        <td>{{ boardgamenight.city }}</td>
+        <td>
+          <div ng-click="openLocationModal(boardgamenight)" class="hover-container">
+            <span class="current-players-link">{{ boardgamenight.city }}</span>
+            <div class="right">
+              <div class="eye"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></div>
+            </div>
+          </div>
+        </td>
         <td>{{ boardgamenight.organisator.fullName }}</td>
         <td class="actions">
           <div>

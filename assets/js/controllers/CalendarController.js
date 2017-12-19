@@ -37,10 +37,28 @@ bgnwebapp.controller('CalendarController', ['$scope', '$rootScope', '$location',
     });
   }
 
-  $scope.openComponentModal = function (boardgamenight) {
+  $scope.openCurrentPlayersModal = function (boardgamenight) {
     var modalInstance = $uibModal.open({
       animation: true,
       component: 'currentPlayers',
+      resolve: {
+        boardgamenight: function () {
+          return boardgamenight;
+        }
+      }
+    });
+
+    modalInstance.result.then(function (selectedItem) {
+      $ctrl.selected = selectedItem;
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+
+  $scope.openLocationModal = function (boardgamenight) {
+    var modalInstance = $uibModal.open({
+      animation: true,
+      component: 'location',
       resolve: {
         boardgamenight: function () {
           return boardgamenight;

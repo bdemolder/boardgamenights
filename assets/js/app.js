@@ -1,6 +1,6 @@
 'use strict';
 
-var bgnwebapp = angular.module('bgnwebapp', ['ngRoute', 'ui.bootstrap']);
+var bgnwebapp = angular.module('bgnwebapp', ['ngRoute', 'ui.bootstrap', 'ngMap']);
 
 bgnwebapp.config(function($locationProvider, $routeProvider) {
   $locationProvider.html5Mode(true);
