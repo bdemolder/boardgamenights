@@ -10,7 +10,7 @@ bgnwebapp.controller('CalendarController', ['$scope', '$rootScope', '$location',
   };
 
   $scope.getBoardGameNightFullClass = function(boardgamenight) {
-    if (boardgamenight.players.length === boardgamenight.maximumPlayerCount) {
+    if (boardgamenight.players.length === boardgamenight.availablePlayerCount) {
       return "danger";
     }
   };
@@ -21,8 +21,12 @@ bgnwebapp.controller('CalendarController', ['$scope', '$rootScope', '$location',
 
   $scope.canSignUp = function (boardgamenight) {
     return boardgamenight.organisator.id !== "fd0b9c8f-98b2-439c-b2fb-56145eebca8a" && 
-      boardgamenight.players.length < boardgamenight.maximumPlayerCount;
+      boardgamenight.players.length < boardgamenight.availablePlayerCount;
   };
+
+  $scope.modify = function (boardgamenight) {
+    $location.path( "/night/" + boardgamenight.id );
+  }
 
   $scope.go = function ( path ) {
     $location.path( path );

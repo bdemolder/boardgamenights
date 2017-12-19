@@ -5,17 +5,10 @@ var bgnwebapp = angular.module('bgnwebapp', ['ngRoute', 'ui.bootstrap']);
 bgnwebapp.config(function($locationProvider, $routeProvider) {
   $locationProvider.html5Mode(true);
   $routeProvider
-    .when('/', {
-      templateUrl: '/pages/home.html'
-    })
-    .when('/calendar', {
-      templateUrl: '/pages/calendar.html', 
-      controller:  'CalendarController'
-    })
-    .when('/night', {
-      templateUrl: '/pages/night.html', 
-      controller:  'NightController'
-    })
+    .when('/', { templateUrl: '/pages/home.html' })
+    .when('/calendar', { templateUrl: '/pages/calendar.html' })
+    .when('/night', { templateUrl: '/pages/night.html' })
+    .when('/night/:id', { templateUrl: '/pages/night.html' })
     .otherwise({ redirectTo: '/' });
 });
 

@@ -53,7 +53,11 @@ module.exports = {
       size: 200,
       required: true
     },
-    maximumPlayerCount: {
+    availablePlayerCount: {
+      type: 'integer',
+      required: true
+    },
+    totalPlayerCount: {
       type: 'integer',
       required: true
     },

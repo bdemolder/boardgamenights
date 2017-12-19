@@ -1,4 +1,4 @@
-bgnwebapp.controller('NightController', ['$scope', '$rootScope', '$location', 'CalendarService', function($scope, $rootScope, $location, CalendarService) {
+bgnwebapp.controller('NightController', ['$scope', '$rootScope', '$location', '$routeParams', 'CalendarService', function($scope, $rootScope, $location, $routeParams, CalendarService) {
   $scope.master = {};
   $scope.complexities = [
     'Light - ideal for absolute beginners',
@@ -7,6 +7,16 @@ bgnwebapp.controller('NightController', ['$scope', '$rootScope', '$location', 'C
     'Medium to Heavy - seasoned gamers',
     'Heavy - only recommended for hard core gamers'
   ];
+
+  var id = $routeParams.id;
+
+  if (id) {
+    CalendarService.getBoardGameNight(id).then(function(response) {
+      $scope.master = response.data;
+      $scope.master.dateTime = new Date(response.data.dateTime);
+      $scope.reset();
+    });
+  }
 
   $scope.getEnumerator = function(value) {
     return new Array(value);   
@@ -23,15 +33,13 @@ bgnwebapp.controller('NightController', ['$scope', '$rootScope', '$location', 'C
   $scope.reset = function() {
     $scope.boardgamenight = angular.copy($scope.master);
   };
-  $scope.reset();
 
   $scope.today = function() {
-    $scope.date = new Date();
+    $scope.boardgamenight.dateTime = new Date();
   };
-  $scope.today();
 
   $scope.clear = function() {
-    $scope.date = null;
+    $scope.boardgamenight.dateTime = null;
   };
 
   $scope.datePopup = {
