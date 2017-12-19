@@ -1,9 +1,12 @@
 bgnwebapp.controller('CalendarController', ['$scope', '$rootScope', '$location', '$uibModal', '$log', 'CalendarService', function($scope, $rootScope, $location, $uibModal, $log, CalendarService) {
   $scope.calendar = [];
 
-  CalendarService.getCalendar().then(function(response) {
-    $scope.calendar = response.data;
-  });
+  function initCalendar() {
+    CalendarService.getCalendar().then(function(response) {
+      $scope.calendar = response.data;
+    });
+  };
+  initCalendar();
 
   $scope.getEnumerator = function(value) {
     return new Array(value);   
@@ -26,6 +29,12 @@ bgnwebapp.controller('CalendarController', ['$scope', '$rootScope', '$location',
 
   $scope.modify = function (boardgamenight) {
     $location.path( "/night/" + boardgamenight.id );
+  }
+
+  $scope.delete = function (boardgamenight) {
+    CalendarService.removeBoardGameNight(boardgamenight.id).then(function(response) {
+      initCalendar();
+    });
   }
 
   $scope.openComponentModal = function (boardgamenight) {

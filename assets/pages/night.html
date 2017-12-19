@@ -18,6 +18,20 @@
       </div>
 
       <div class="row night-row">
+        <div class="col-md-2 text-right night-row-header large-info"><span class="glyphicon glyphicon-question-sign info-circle" uib-popover-template="'/pages/boardGameGeekDescription.html'" popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> BoardGameGeek Id</div>
+        <div class="col-md-10">
+          <input type="text" ng-model="boardgamenight.boardgameGeekId" class="form-control" id="boardGameGeekId" placeholder="BoardGameGeek Id">
+        </div>
+      </div>
+
+      <div class="row night-row complexity-row">
+        <div class="col-md-2 text-right night-row-header large-info"><span class="glyphicon glyphicon-question-sign info-circle" uib-popover-template="'/pages/starRatingDescription.html'" popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> Complexity</div>
+        <div class="col-md-10">
+          <span uib-rating max="5" ng-model="boardgamenight.complexity" on-leave="overStar = null" titles="complexities"></span>
+        </div>
+      </div>
+
+      <div class="row night-row">
         <div class="col-md-2 text-right night-row-header">Date</div>
         <div class="col-md-2">
           <p class="input-group bgn-date-picker">
@@ -53,23 +67,26 @@
         <div class="col-md-8"></div>
       </div>
 
-      <div class="row night-row complexity-row">
-        <div class="col-md-2 text-right night-row-header large-info"><span class="glyphicon glyphicon-question-sign info-circle" uib-popover-template="'/pages/starRatingDescription.html'" popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> Complexity</div>
+      <div class="row night-row">
+        <div class="col-md-2 text-right night-row-header">Street</div>
         <div class="col-md-10">
-          <span uib-rating max="5" ng-model="boardgamenight.complexity" on-leave="overStar = null" titles="complexities"></span>
+          <input type="text" ng-model="boardgamenight.street" class="form-control" id="street" placeholder="Street + Number">
         </div>
       </div>
 
       <div class="row night-row">
-        <div class="col-md-2 text-right night-row-header large-info"><span class="glyphicon glyphicon-question-sign info-circle" uib-popover-template="'/pages/boardGameGeekDescription.html'" popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> BoardGameGeek Id</div>
-        <div class="col-md-10">
-          <input type="text" ng-model="boardgamenight.boardgameGeekId" class="form-control" id="boardGameGeekId" placeholder="BoardGameGeek Id">
+        <div class="col-md-2 text-right night-row-header">Postal Code & City</div>
+        <div class="col-md-2">
+          <input type="text" ng-model="boardgamenight.postcode" class="form-control" id="postcode" placeholder="Postal Code">
+        </div>
+        <div class="col-md-8">
+          <input type="text" ng-model="boardgamenight.city" class="form-control" id="city" placeholder="City">
         </div>
       </div>
 
       <div class="row night-row button-row">
         <div class="col-sm-offset-2 col-md-10 text-left">
-          <button type="submit" class="btn btn-primary btn-lg" ng-click="update(user)" value="Save">Save</button>
+          <button type="submit" class="btn btn-primary btn-lg" ng-click="update(boardgamenight)" value="Save">Save</button>
           <button type="button" class="btn btn-warning" ng-click="reset()" value="Reset">Reset</button>
           <button type="button" class="btn btn-info" ng-click="go('/calendar')" value="Back">Back</button>
         </div>

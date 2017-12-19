@@ -27,7 +27,7 @@ module.exports = {
       required: true
     },
     boardgameGeekId: {
-      type: 'integer',
+      type: 'string',
       required: false
     },
     boardgameGeekLink: {
@@ -69,7 +69,10 @@ module.exports = {
       model: 'organisator'
     },
     players: {
-      type: 'json'
+      type: 'json',
+      defaultsTo: function() {
+        return [];
+      }
     }
   }
 };

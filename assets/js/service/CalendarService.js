@@ -17,5 +17,24 @@ bgnwebapp.service('CalendarService', function($http, $q) {
         defer.reject(err);
       });
       return defer.promise;
+    },
+    'addBoardGameNight': function(boardgamenight) {
+      var defer = $q.defer();
+      boardgamenight.organisator = 'fd0b9c8f-98b2-439c-b2fb-56145eebca8a';
+      $http.post('api/boardgamenight', boardgamenight).then(function(resp) {
+        defer.resolve(resp);
+      }, function(err) {
+        defer.reject(err);
+      });
+      return defer.promise;
+    },
+    'removeBoardGameNight': function(id) {
+      var defer = $q.defer();
+      $http.delete('api/boardgamenight/' + id).then(function(resp) {
+        defer.resolve(resp);
+      }, function(err) {
+        defer.reject(err);
+      });
+      return defer.promise;
     }
 }});
