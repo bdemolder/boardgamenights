@@ -1,11 +1,33 @@
 <div id="homeView" ng-controller="HomeController">
   <div class="home-content">
     <div class="row night-row">
-        <div class="col-md-12">
-          <div class="page-header bgn-header">
-            <h1>Welcome to the website of the Board Game Nights! <small>Pssst... click on calendar in the menu!</small></h1>
-          </div>
+      <div class="col-md-12">
+        <div class="page-header bgn-header">
+          <h1>Welcome {{ getFirstName() }}!</h1>
         </div>
       </div>
+    </div>
+    <div ng-if="isUserAuthenticated()">
+      <h3>You are now logged in, click on 'Calendar' in the menu on top to start.</h3>
+    </div>
+    <div ng-if="!isUserAuthenticated()">
+      <h3>As a guest, you can <b>only view the calendar</b> by clicking 'Calendar' in the menu on top.</h3>
+      <h3>However, if you want to <b>sign up</b> for a board game or <b>host</b> yourself:</h3>
+      <ol>
+        <li>First click 'Cntinue with Facebook', and allow public info & e-mail information. E-mail addresses will remain secret.</li>
+        <li>After this is done, this message will dissapear and your full name will be in the upper right corner.</li>
+        <li>When you click on 'Calendar' in the menu on top, you will be able to host or sign up for a board game.</li>
+      </ol>
+      <h3>If you understand, ready... set... Click!</h3><br/>
+        <div facebook-parse class="fb-login-button" 
+          data-max-rows="1" 
+          data-size="large" 
+          data-button-type="continue_with" 
+          data-show-faces="false"
+          data-auto-logout-link="false" 
+          data-use-continue-as="false"
+          data-scope="public_profile">
+        </div>
+    </div>
   </div>
 </div>

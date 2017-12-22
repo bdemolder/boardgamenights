@@ -1,4 +1,4 @@
-bgnwebapp.controller('NightController', ['$scope', '$rootScope', '$location', '$routeParams', 'CalendarService', function($scope, $rootScope, $location, $routeParams, CalendarService) {
+bgnwebapp.controller('NightController', ['$scope', '$rootScope', '$location', '$routeParams', 'CalendarService', 'AuthenticationService', function($scope, $rootScope, $location, $routeParams, CalendarService, AuthenticationService) {
   $scope.master = {};
   $scope.boardgamenight = {};
   $scope.complexities = [
@@ -36,6 +36,8 @@ bgnwebapp.controller('NightController', ['$scope', '$rootScope', '$location', '$
         $scope.go('/calendar');
       });
     } else {
+      var currentUser = AuthenticationService.getUser();
+      boardgamenight.organisator = currentUser.id;
       CalendarService.addBoardGameNight(boardgamenight).then(function(response) {
         $scope.go('/calendar');
       });

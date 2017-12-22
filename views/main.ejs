@@ -17,11 +17,11 @@
         <ul class="nav navbar-nav">
           <li ng-class="getClass('/calendar')"><a ng-href="/calendar">Calendar<span class="sr-only">(current)</span></a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right" ng-cloak>
           <li>
-            <a>Benjamin</a>
+            <div class="user-header" ng-cloak>{{ getFullName() }}</div>
           </li>
-          <li uib-popover="Logout" popover-trigger="'mouseenter'" popover-placement="left"><a href="#"><span class="glyphicon glyphicon-log-out" aria-hidden="true"><span class="sr-only">(current)</span></a></li>
+          <li uib-popover="Logout" popover-trigger="'mouseenter'" popover-placement="left"><a href="#" ng-click="logout()"><span class="glyphicon glyphicon-log-out" aria-hidden="true"><span class="sr-only">(current)</span></a></li>
         </ul>
       </div>
     </div>

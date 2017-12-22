@@ -36,6 +36,7 @@
   </head>
 
   <body ng-app="bgnwebapp" ng-cloak>
+    <div id="fb-root"></div>    
     <%- body %>
 
 
@@ -105,10 +106,13 @@
     <script src="/js/controllers/HomeController.js"></script>
     <script src="/js/controllers/LocationController.js"></script>
     <script src="/js/controllers/NightController.js"></script>
+    <script src="/js/directives/facebookParse.js"></script>
+    <script src="/js/service/AuthenticationService.js"></script>
     <script src="/js/service/CalendarService.js"></script>
     <!--SCRIPTS END-->
 
     <!-- Server Side Scripts -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzx-W7fI8repNJdr8URtDHW2OIWVUtmoE"></script>
+    <script src="<%= 'https://maps.googleapis.com/maps/api/js?key=' + google.key %>"></script>
+    <!-- Server side scripts -->
   </body>
 </html>

@@ -1,4 +1,4 @@
-bgnwebapp.controller('CalendarController', ['$scope', '$rootScope', '$location', '$uibModal', '$log', 'CalendarService', function($scope, $rootScope, $location, $uibModal, $log, CalendarService) {
+bgnwebapp.controller('CalendarController', ['$scope', '$rootScope', '$location', '$uibModal', '$log', 'CalendarService', 'AuthenticationService', function($scope, $rootScope, $location, $uibModal, $log, CalendarService, AuthenticationService) {
   $scope.calendar = [];
 
   function initCalendar() {
@@ -29,12 +29,19 @@ bgnwebapp.controller('CalendarController', ['$scope', '$rootScope', '$location',
     return difficulties[boardgamenight.complexity];
   }
 
+  $scope.isReadOnly = function () {
+    return !AuthenticationService.isUserAuthenticated();
+  }
+  
   $scope.isOwner = function (boardgamenight) {
-    return boardgamenight.organisator.id === "fd0b9c8f-98b2-439c-b2fb-56145eebca8a";
+    var currentUser = AuthenticationService.getUser();
+    return currentUser.isAuthenticated && boardgamenight.organisator.id === currentUser.id;
   };
 
   $scope.canSignUp = function (boardgamenight) {
-    return boardgamenight.organisator.id !== "fd0b9c8f-98b2-439c-b2fb-56145eebca8a" && 
+    var currentUser = AuthenticationService.getUser();
+    return currentUser.isAuthenticated && 
+      boardgamenight.organisator.id !== currentUser.id && 
       boardgamenight.players.length < boardgamenight.availablePlayerCount;
   };
 

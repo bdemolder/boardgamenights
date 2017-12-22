@@ -66,13 +66,12 @@ module.exports = {
       required: true
     },
     organisator: {
-      model: 'organisator'
+      model: 'user'
     },
     players: {
-      type: 'json',
-      defaultsTo: function() {
-        return [];
-      }
+      collection: 'user',
+      via: 'subscribedBoardGames',
+      dominant: true
     }
   }
 };

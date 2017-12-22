@@ -8,7 +8,6 @@
 const uuid = require('uuid/v4');
 
 module.exports = {
-
   attributes: {
     id: {
       type: 'string',
@@ -18,9 +17,10 @@ module.exports = {
         return uuid();
       }
     },
-    facebook: {
+    facebookId: {
       type: 'string',
-      size: 100
+      size: 100,
+      required: true
     },
     fullName: {
       type: 'string',
@@ -54,6 +54,10 @@ module.exports = {
     hostedBoardGames: {
       collection: 'boardgamenight',
       via: 'organisator'
+    },
+    subscribedBoardGames: {
+      collection: 'boardgamenight',
+      via: 'players'
     }
   }
 };

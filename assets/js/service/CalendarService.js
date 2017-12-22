@@ -1,6 +1,6 @@
 bgnwebapp.service('CalendarService', function($http, $q) {
   return {
-    'getCalendar': function() {
+    getCalendar: function() {
       var defer = $q.defer();
       $http.get('api/calendar').then(function(resp) {
         defer.resolve(resp);
@@ -9,7 +9,7 @@ bgnwebapp.service('CalendarService', function($http, $q) {
       });
       return defer.promise;
     },
-    'getBoardGameNight': function(id) {
+    getBoardGameNight: function(id) {
       var defer = $q.defer();
       $http.get('api/boardgamenight/' + id).then(function(resp) {
         defer.resolve(resp);
@@ -18,9 +18,8 @@ bgnwebapp.service('CalendarService', function($http, $q) {
       });
       return defer.promise;
     },
-    'addBoardGameNight': function(boardgamenight) {
+    addBoardGameNight: function(boardgamenight) {
       var defer = $q.defer();
-      boardgamenight.organisator = 'fd0b9c8f-98b2-439c-b2fb-56145eebca8a';
       $http.post('api/boardgamenight', boardgamenight).then(function(resp) {
         defer.resolve(resp);
       }, function(err) {
@@ -28,7 +27,7 @@ bgnwebapp.service('CalendarService', function($http, $q) {
       });
       return defer.promise;
     },
-    'removeBoardGameNight': function(id) {
+    removeBoardGameNight: function(id) {
       var defer = $q.defer();
       $http.delete('api/boardgamenight/' + id).then(function(resp) {
         defer.resolve(resp);
@@ -37,7 +36,7 @@ bgnwebapp.service('CalendarService', function($http, $q) {
       });
       return defer.promise;
     },
-    'modifyBoardGameNight': function(boardgamenight) {
+    modifyBoardGameNight: function(boardgamenight) {
       var defer = $q.defer();
       $http.put('api/boardgamenight/' + boardgamenight.id, boardgamenight).then(function(resp) {
         defer.resolve(resp);

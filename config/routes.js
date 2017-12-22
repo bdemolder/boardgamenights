@@ -19,7 +19,7 @@
  * For more information on configuring custom routes, check out:
  * http://sailsjs.org/#!/documentation/concepts/Routes/RouteTargetSyntax.html
  */
-
+//var google = google.key;
 module.exports.routes = {
 
   /***************************************************************************
@@ -34,7 +34,12 @@ module.exports.routes = {
 
   "r|^\/(?!.*api).*|": {
     view: 'main',
-    skipAssets: true
+    skipAssets: true,
+    locals: { 
+      google: {
+        key: process.env.GOOGLE_API_KEY
+      }
+    }
   },
 
   /***************************************************************************
@@ -49,11 +54,12 @@ module.exports.routes = {
 
   'GET /api/calendar': {
     controller: 'BoardgamenightController',
-    action: 'getCalendar',
-    cors: {
-      origin: 'http://localhost:4200',
-      methods: 'GET,PUT,POST,OPTIONS,HEAD'
-    }
+    action: 'getCalendar'
+  },
+
+  'PUT /api/checkUser': {
+    controller: 'UserController',
+    action: 'checkUser'
   },
 
   // authentication
