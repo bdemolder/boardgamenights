@@ -18,10 +18,11 @@
           <li ng-class="getClass('/calendar')"><a ng-href="/calendar">Calendar<span class="sr-only">(current)</span></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right" ng-cloak>
-          <li>
+          <li ng-if="isUserAuthenticated()">
             <div class="user-header" ng-cloak>{{ getFullName() }}</div>
           </li>
-          <li uib-popover="Logout" popover-trigger="'mouseenter'" popover-placement="left"><a href="#" ng-click="logout()"><span class="glyphicon glyphicon-log-out" aria-hidden="true"><span class="sr-only">(current)</span></a></li>
+          <li ng-if="!isUserAuthenticated()" ng-class="getClass('/login')"><a ng-href="/login">Login<span class="sr-only">(current)</span></a></li>
+          <li ng-if="isUserAuthenticated()" uib-popover="Logout" popover-trigger="'mouseenter'" popover-placement="left"><a href="#" ng-click="logout()"><span class="glyphicon glyphicon-log-out" aria-hidden="true"><span class="sr-only">(current)</span></a></li>
         </ul>
       </div>
     </div>

@@ -9,13 +9,9 @@ const passport = require('passport');
 
 // http://calderonroberto.com/blog/sails-and-facebook-login-using-passport/
 module.exports = {
-  login: (req, res) => {
-    res.view();
-  },
-
   logout: (req, res) => {
     req.logout();
-    res.redirect('/home');
+    res.redirect('/login');
   },
 
   facebook: (req, res) => {
@@ -28,7 +24,7 @@ module.exports = {
             console.error(err);
             res.view('500');
           } else {
-            res.redirect('/home');
+            res.redirect('/');
           }
         });
       }

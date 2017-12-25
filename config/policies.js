@@ -27,8 +27,9 @@ module.exports.policies = {
   ***************************************************************************/
 
   '*': true,
-  'HomeController': {
-    '*': 'sessionAuth'
+  'BoardgamenightController': {
+    '*': 'sessionAuth',
+    'getCalendar': []
   }
 
   /***************************************************************************

@@ -35,12 +35,12 @@ bgnwebapp.controller('CalendarController', ['$scope', '$rootScope', '$location',
   
   $scope.isOwner = function (boardgamenight) {
     var currentUser = AuthenticationService.getUser();
-    return currentUser.isAuthenticated && boardgamenight.organisator.id === currentUser.id;
+    return AuthenticationService.isUserAuthenticated() && boardgamenight.organisator.id === currentUser.id;
   };
 
   $scope.canSignUp = function (boardgamenight) {
     var currentUser = AuthenticationService.getUser();
-    return currentUser.isAuthenticated && 
+    return AuthenticationService.isUserAuthenticated() && 
       boardgamenight.organisator.id !== currentUser.id && 
       boardgamenight.players.length < boardgamenight.availablePlayerCount;
   };

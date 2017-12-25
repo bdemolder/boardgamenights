@@ -1,7 +1,7 @@
 bgnwebapp.controller('HomeController', ['$scope', '$rootScope', '$location', 'AuthenticationService', function($scope, $rootScope, $location, AuthenticationService) {
   $scope.getFirstName = function () {
-    if (AuthenticationService.isUserAuthenticated() && $rootScope.user.fullName) {
-      return AuthenticationService.getUser().fullName;
+    if ($rootScope.user && $rootScope.user.fullName) {
+      return $rootScope.user.fullName;
     } 
     return "Guest";
   }

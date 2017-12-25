@@ -51,28 +51,16 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-
   'GET /api/calendar': {
     controller: 'BoardgamenightController',
     action: 'getCalendar'
   },
-
-  'PUT /api/checkUser': {
-    controller: 'UserController',
-    action: 'checkUser'
-  },
-
-  // authentication
-  '/login': {
-    controller: 'AuthController',
-    action: 'login'
-  },
-  '/logout': {
+  'Get /api/logout': {
     controller: 'AuthController',
     action: 'logout'
   },
-  '/home': {
-    controller: 'HomeController',
-    action: 'index'
+  'GET /api/currentUser': {
+    controller: 'UserController',
+    action: 'getCurrentUser'
   }
 };
