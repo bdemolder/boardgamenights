@@ -6,12 +6,14 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 const verifyHandler = (token, tokenSecret, profile, done) => {
   process.nextTick(() => {
     User.findOne({facebookId: profile.id}, (err, user) => {
+      console.log(profile);
       if (user) {
         done(null, user);
       } else {
         let data = {
           facebookId: profile.id,
-          fullName: profile.displayName
+          fullName: profile.displayName,
+          facebookLink: profile.profileUrl
         };
         User.create(data, (err, user) => {
           done(err, user);
@@ -36,7 +38,8 @@ module.exports.http = {
     passport.use(new FacebookStrategy({
       clientID: local.facebook.clientID,
       clientSecret: local.facebook.clientSecret,
-      callbackURL: 'http://localhost:1337/api/auth/facebook/callback'
+      callbackURL: 'http://localhost:1337/api/auth/facebook/callback',
+      profileFields: ['displayName', 'link']
     }, verifyHandler));
 
     app.use(passport.initialize());

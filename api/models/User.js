@@ -22,6 +22,10 @@ module.exports = {
       size: 100,
       required: true
     },
+    facebookLink: {
+      type: 'string',
+      size: 200,
+    },
     fullName: {
       type: 'string',
       size: 200,
