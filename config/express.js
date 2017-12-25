@@ -1,5 +1,4 @@
 
-const local = require('./local');
 const passport = require('passport');
 const FacebookStrategy = require('passport-facebook').Strategy;
 
@@ -35,8 +34,8 @@ passport.deserializeUser((id, done) => {
 module.exports.http = {
   customMiddleware: app => {
     passport.use(new FacebookStrategy({
-      clientID: local.facebook.clientID,
-      clientSecret: local.facebook.clientSecret,
+      clientID: sails.config.facebook.clientID,
+      clientSecret: sails.config.facebook.clientSecret,
       callbackURL: 'http://localhost:1337/api/auth/facebook/callback',
       profileFields: ['displayName', 'link']
     }, verifyHandler));
