@@ -70,7 +70,8 @@ module.exports = {
     },
     players: {
       collection: 'user',
-      via: 'subscribedBoardGames',
+      via: 'player',
+      through: 'nightplayer',
       dominant: true
     }
   }

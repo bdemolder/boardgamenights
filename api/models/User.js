@@ -61,7 +61,8 @@ module.exports = {
     },
     subscribedBoardGames: {
       collection: 'boardgamenight',
-      via: 'players'
+      via: 'boardgamenight',
+      through: 'nightplayer'
     }
   }
 };

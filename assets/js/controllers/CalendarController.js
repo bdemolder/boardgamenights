@@ -1,5 +1,7 @@
-bgnwebapp.controller('CalendarController', ['$scope', '$rootScope', '$location', '$uibModal', '$log', 'CalendarService', 'AuthenticationService', function($scope, $rootScope, $location, $uibModal, $log, CalendarService, AuthenticationService) {
+bgnwebapp.controller('CalendarController', ['$scope', '$rootScope', '$location', '$uibModal', '$log', 'toaster', 'CalendarService', 'AuthenticationService', function($scope, $rootScope, $location, $uibModal, $log, toaster, CalendarService, AuthenticationService) {
   $scope.calendar = [];
+
+  $scope.alerts = [];
 
   function initCalendar() {
     CalendarService.getCalendar().then(function(response) {
@@ -38,12 +40,44 @@ bgnwebapp.controller('CalendarController', ['$scope', '$rootScope', '$location',
     return AuthenticationService.isUserAuthenticated() && boardgamenight.organisator.id === currentUser.id;
   };
 
-  $scope.canSignUp = function (boardgamenight) {
+  $scope.canJoin = function (boardgamenight) {
     var currentUser = AuthenticationService.getUser();
+    var playersMatching = boardgamenight.players.filter(player => (player.id === currentUser.id));
+
     return AuthenticationService.isUserAuthenticated() && 
       boardgamenight.organisator.id !== currentUser.id && 
-      boardgamenight.players.length < boardgamenight.availablePlayerCount;
+      boardgamenight.players.length < boardgamenight.availablePlayerCount &&
+      playersMatching.length === 0;
   };
+
+  $scope.canLeave = function (boardgamenight) {
+    var currentUser = AuthenticationService.getUser();
+    var playersMatching = boardgamenight.players.filter(player => (player.id === currentUser.id));
+
+    return AuthenticationService.isUserAuthenticated() && 
+      boardgamenight.organisator.id !== currentUser.id && 
+      playersMatching.length > 0;
+  };
+
+  $scope.leave = function (boardgamenight) {
+    CalendarService.leaveBoardGameNight(boardgamenight)
+      .then(function(response) {
+        initCalendar();
+      })
+      .catch(function(error) {
+        toaster.pop('warning', "Can't join table:", error.data, 5000);
+      });
+  }
+
+  $scope.join = function (boardgamenight) {
+    CalendarService.joinBoardGameNight(boardgamenight)
+      .then(function(response) {
+        initCalendar();
+      })
+      .catch(function(error) {
+        toaster.pop('warning', "Can't join table:", error.data, 5000);
+      });
+  }
 
   $scope.modify = function (boardgamenight) {
     $location.path( "/night/" + boardgamenight.id );
@@ -93,5 +127,9 @@ bgnwebapp.controller('CalendarController', ['$scope', '$rootScope', '$location',
 
   $scope.go = function ( path ) {
     $location.path( path );
+  };
+
+  $scope.closeAlert = function(index) {
+    $scope.alerts.splice(index, 1);
   };
 }]);

@@ -44,5 +44,23 @@ bgnwebapp.service('CalendarService', function($http, $q) {
         defer.reject(err);
       });
       return defer.promise;
+    },
+    joinBoardGameNight: function(boardgamenight) {
+      var defer = $q.defer();
+      $http.patch('api/boardgamenight/' + boardgamenight.id + "/join").then(function() {
+        defer.resolve();
+      }, function(err) {
+        defer.reject(err);
+      });
+      return defer.promise;
+    },
+    leaveBoardGameNight: function(boardgamenight) {
+      var defer = $q.defer();
+      $http.patch('api/boardgamenight/' + boardgamenight.id + "/leave").then(function() {
+        defer.resolve();
+      }, function(err) {
+        defer.reject(err);
+      });
+      return defer.promise;
     }
 }});

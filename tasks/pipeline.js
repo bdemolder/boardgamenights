@@ -18,6 +18,7 @@
 //  to change `assets/styles/importer.less` instead.)
 var cssFilesToInject = [
   'bower_components/bootstrap/dist/css/bootstrap.min.css',
+  '/bower_components/AngularJS-Toaster/toaster.min.css',
   'styles/**/*.css'
 ];
 
@@ -36,6 +37,8 @@ var jsFilesToInject = [
   '/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
   '/bower_components/bootstrap/dist/js/bootstrap.js',
   '/bower_components/ngmap/build/scripts/ng-map.min.js',
+  '/bower_components/angular-animate/angular-animate.min.js',
+  '/bower_components/AngularJS-Toaster/toaster.min.js',
   'js/dependencies/**/*.js',
 
   // All of the rest of your client-side js files
