@@ -27,7 +27,7 @@
       <div class="row night-row complexity-row">
         <div class="col-md-2 text-right night-row-header large-info" ng-class="{'bgn-error': (bgnForm.complexity.$invalid && !bgnForm.complexity.$pristine) }"><span class="glyphicon glyphicon-question-sign info-circle" uib-popover-template="'/pages/starRatingDescription.html'" popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> Complexity <span class="bgn-required">*</span></div>
         <div class="col-md-10">
-          <span uib-rating max="5" name="complexity" ng-model="boardgamenight.complexity" on-leave="overStar = null" titles="complexities" required></span>
+          <span class="bgn-complexity" uib-rating max="5" name="complexity" ng-model="boardgamenight.complexity" on-leave="overStar = null" titles="complexities" complexity></span>
         </div>
       </div>
       

@@ -78,6 +78,18 @@ input {
   }
 }
 
+.bgn-complexity {
+  &:not(.ng-pristine) {
+    &.ng-invalid  {
+      color: #a94442;
+
+      &:focus {
+        color: #843534;
+      }
+    }
+  }
+}
+
 .bgn-error {
   color: #a94442;
 }

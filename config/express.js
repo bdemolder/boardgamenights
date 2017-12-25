@@ -6,7 +6,6 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 const verifyHandler = (token, tokenSecret, profile, done) => {
   process.nextTick(() => {
     User.findOne({facebookId: profile.id}, (err, user) => {
-      console.log(profile);
       if (user) {
         done(null, user);
       } else {
