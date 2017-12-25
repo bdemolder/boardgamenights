@@ -9,17 +9,17 @@ const passport = require('passport');
 
 // http://calderonroberto.com/blog/sails-and-facebook-login-using-passport/
 module.exports = {
-  logout: (req, res) => {
+  logout: function (req, res) {
     req.logout();
     res.redirect('/login');
   },
 
-  facebook: (req, res) => {
+  facebook: function (req, res) {
     passport.authenticate(
       'facebook',
       { failureRedirect: '/login' },
-      (err, user) => {
-        req.logIn(user, err => {
+      function (err, user) {
+        req.logIn(user, function (err) {
           if (err) {
             console.error(err);
             res.view('500');

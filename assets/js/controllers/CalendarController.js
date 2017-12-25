@@ -42,7 +42,7 @@ bgnwebapp.controller('CalendarController', ['$scope', '$rootScope', '$location',
 
   $scope.canJoin = function (boardgamenight) {
     var currentUser = AuthenticationService.getUser();
-    var playersMatching = boardgamenight.players.filter(player => (player.id === currentUser.id));
+    var playersMatching = boardgamenight.players.filter(function (player) { return player.id === currentUser.id });
 
     return AuthenticationService.isUserAuthenticated() && 
       boardgamenight.organisator.id !== currentUser.id && 
@@ -52,7 +52,7 @@ bgnwebapp.controller('CalendarController', ['$scope', '$rootScope', '$location',
 
   $scope.canLeave = function (boardgamenight) {
     var currentUser = AuthenticationService.getUser();
-    var playersMatching = boardgamenight.players.filter(player => (player.id === currentUser.id));
+    var playersMatching = boardgamenight.players.filter(function (player) { return player.id === currentUser.id });
 
     return AuthenticationService.isUserAuthenticated() && 
       boardgamenight.organisator.id !== currentUser.id && 

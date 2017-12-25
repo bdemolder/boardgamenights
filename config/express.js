@@ -2,9 +2,9 @@
 const passport = require('passport');
 const FacebookStrategy = require('passport-facebook').Strategy;
 
-const verifyHandler = (token, tokenSecret, profile, done) => {
-  process.nextTick(() => {
-    User.findOne({facebookId: profile.id}, (err, user) => {
+const verifyHandler = function (token, tokenSecret, profile, done) {
+  process.nextTick(function () {
+    User.findOne({facebookId: profile.id}, function (err, user) {
       if (user) {
         done(null, user);
       } else {
@@ -13,7 +13,7 @@ const verifyHandler = (token, tokenSecret, profile, done) => {
           fullName: profile.displayName,
           facebookLink: profile.profileUrl
         };
-        User.create(data, (err, user) => {
+        User.create(data, function (err, user) {
           done(err, user);
         })
       }
@@ -21,18 +21,18 @@ const verifyHandler = (token, tokenSecret, profile, done) => {
   });
 };
 
-passport.serializeUser((user, done) => {
+passport.serializeUser(function (user, done) {
   done(null, user.id);
 });
 
-passport.deserializeUser((id, done) => {
-  User.findOne({id}, (err, user) => {
+passport.deserializeUser(function (id, done) {
+  User.findOne({id}, function (err, user) {
     done(err, user);
   })
 });
 
 module.exports.http = {
-  customMiddleware: app => {
+  customMiddleware: function (app) {
     passport.use(new FacebookStrategy({
       clientID: sails.config.facebook.clientID,
       clientSecret: sails.config.facebook.clientSecret,

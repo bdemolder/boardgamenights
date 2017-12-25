@@ -44,7 +44,7 @@ module.exports = {
         return res.serverError(err);
       }
 
-      // var boardGameIds = boardgamenights.map(x => x.boardgameGeekId).join(',');
+      // var boardGameIds = boardgamenights.map(function (x) { return x.boardgameGeekId }).join(',');
       //     console.log(boardGameIds);
       // bgg('thing', {type: 'boardgame', id: boardGameIds, pagesize: 100})
       //   .then(function(results){
@@ -65,7 +65,7 @@ module.exports = {
         if (!boardGameNight) { return res.notFound('Could not find the board game night.'); }
         if (boardGameNight.players.length >= boardGameNight.availablePlayerCount) { return res.forbidden('This board game night is full.'); }
 
-        User.findOne({ id: req.user.id }, (err, user) => {
+        User.findOne({ id: req.user.id }, function (err, user) {
           if (err) { return res.serverError(err); }
           if (!user) { return res.notFound('Could not find the user.'); }
 
@@ -108,10 +108,10 @@ module.exports = {
         if (err) { return res.serverError(err); }
         if (!boardGameNight) { return res.notFound('Could not find the board game night.'); }
 
-        var playersMatching = boardGameNight.players.filter(player => (player.id === req.user.id));
+        var playersMatching = boardGameNight.players.filter(function (player) { return player.id === req.user.id });
         if (playersMatching === 0) { return res.forbidden('You are not at this table.'); }
 
-        User.findOne({ id: req.user.id }, (err, user) => {
+        User.findOne({ id: req.user.id }, function (err, user) {
           if (err) { return res.serverError(err); }
           if (!user) { return res.notFound('Could not find the user.'); }
 
