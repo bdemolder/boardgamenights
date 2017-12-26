@@ -23,20 +23,25 @@ module.exports = function(grunt) {
 
   grunt.config.set('copy', {
     dev: {
-      files: [{
-        expand: true,
-        cwd: './assets',
-        src: ['**/*.!(coffee|less)'],
-        dest: '.tmp/public'
-      }]
+      files: [
+        {
+          expand: true,
+          cwd: './assets',
+          src: ['**/*.!(coffee|less)'],
+          dest: '.tmp/public'
+        },
+        {
+          expand: true,
+          cwd: './assets/bower_components/bootstrap/fonts',
+          src: ['./*.!(coffee|less)'],
+          dest: '.tmp/public/fonts'
+        }
+      ]
     },
     build: {
-      files: [{
-        expand: true,
-        cwd: '.tmp/public',
-        src: ['**/*'],
-        dest: 'www'
-      }]
+      files: [
+        { expand: true, cwd: '.tmp/public', src: ['**/*'], dest: 'www' }
+      ]
     }
   });
 
