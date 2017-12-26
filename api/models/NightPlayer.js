@@ -7,6 +7,13 @@
 
 module.exports = {
   attributes: {
+    id: {
+      type: 'string',
+      primaryKey: true,
+      defaultsTo: function() {
+        return uuid();
+      }
+    },
     boardgamenight:{
       model:'boardgamenight'
     },
