@@ -13,6 +13,7 @@
 var databaseUrl = process.env.DATABASE_URL;
 var facebookClientId = process.env.FACEBOOK_CLIENT_ID;
 var facebookClientSecret = process.env.FACEBOOK_CLIENT_SECRET;
+var facebookCallBackUrl = process.env.FACEBOOK_CALLBACK_URL;
 module.exports = {
 
   /***************************************************************************
@@ -31,7 +32,8 @@ module.exports = {
   },
   facebook: {
     clientID: facebookClientId,
-    clientSecret: facebookClientSecret
+    clientSecret: facebookClientSecret,
+    callBackUrl: facebookCallBackUrl
   }
 
   /***************************************************************************

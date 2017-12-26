@@ -36,7 +36,7 @@ module.exports.http = {
     passport.use(new FacebookStrategy({
       clientID: sails.config.facebook.clientID,
       clientSecret: sails.config.facebook.clientSecret,
-      callbackURL: '/api/auth/facebook/callback',
+      callbackURL: sails.config.facebook.callBackUrl,
       profileFields: ['displayName', 'link']
     }, verifyHandler));
 
