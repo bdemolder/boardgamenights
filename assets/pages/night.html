@@ -17,12 +17,12 @@
         </div>
       </div>
 
-      <div class="row night-row">
+      <!-- <div class="row night-row">
         <div class="col-md-2 text-right night-row-header large-info"><span class="glyphicon glyphicon-question-sign info-circle" uib-popover-template="'/pages/boardGameGeekDescription.html'" popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> BoardGameGeek Id <span class="bgn-not-required">*</span></div>
         <div class="col-md-10">
           <input type="text" ng-model="boardgamenight.boardgameGeekId" class="form-control" id="boardGameGeekId" placeholder="BoardGameGeek Id">
         </div>
-      </div>
+      </div> -->
 
       <div class="row night-row complexity-row">
         <div class="col-md-2 text-right night-row-header large-info" ng-class="{'bgn-error': (bgnForm.complexity.$invalid && !bgnForm.complexity.$pristine) }"><span class="glyphicon glyphicon-question-sign info-circle" uib-popover-template="'/pages/starRatingDescription.html'" popover-trigger="'mouseenter'" popover-placement="auto bottom" aria-hidden="true"></span> Complexity <span class="bgn-required">*</span></div>
