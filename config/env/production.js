@@ -23,12 +23,12 @@ module.exports = {
   connections: {
     postgres: {
       adapter: 'sails-postgresql',
-      ssl: true,
+      ssl: false,
       url: databaseUrl
     }
   },
   models: {
-    migrate: 'alter'
+    migrate: 'safe'
   },
   facebook: {
     clientID: facebookClientId,
