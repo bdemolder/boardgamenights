@@ -17,7 +17,7 @@ bgnwebapp.run(['$rootScope', '$window', '$location', 'AuthenticationService', fu
   });
 }]);
 
-bgnwebapp.config(function($locationProvider, $routeProvider) {
+bgnwebapp.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.html5Mode(true);
   $routeProvider
     .when('/', { templateUrl: '/pages/home.html', authenticationRequired: false })
@@ -27,7 +27,7 @@ bgnwebapp.config(function($locationProvider, $routeProvider) {
     .when('/night', { templateUrl: '/pages/night.html', authenticationRequired: true })
     .when('/night/:id', { templateUrl: '/pages/night.html', authenticationRequired: true })
     .otherwise({ redirectTo: '/login' });
-});
+}]);
 
 bgnwebapp.controller('MainController', ['$scope', '$rootScope', '$location', '$window', 'AuthenticationService', function($scope, $rootScope, $location, $window, AuthenticationService) {
   AuthenticationService.retrieveUserInfo().catch(function (error){

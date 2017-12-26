@@ -1,4 +1,4 @@
-bgnwebapp.service('AuthenticationService', function($http, $rootScope, $q, $location) {
+bgnwebapp.service('AuthenticationService', ['$http', '$rootScope', '$q', '$location', function($http, $rootScope, $q, $location) {
   return {
     logout: function () {
       var defer = $q.defer();
@@ -37,4 +37,4 @@ bgnwebapp.service('AuthenticationService', function($http, $rootScope, $q, $loca
       return $rootScope.user;
     }
   }
-});
+}]);

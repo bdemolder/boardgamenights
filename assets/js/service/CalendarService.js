@@ -1,4 +1,4 @@
-bgnwebapp.service('CalendarService', function($http, $q) {
+bgnwebapp.service('CalendarService', ['$http', '$q', function($http, $q) {
   return {
     getCalendar: function() {
       var defer = $q.defer();
@@ -63,4 +63,4 @@ bgnwebapp.service('CalendarService', function($http, $q) {
       });
       return defer.promise;
     }
-}});
+}}]);
