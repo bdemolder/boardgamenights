@@ -22,6 +22,7 @@
     "grunt-contrib-jst": "1.0.0",
     "grunt-contrib-less": "1.4.1",
     "grunt-contrib-uglify": "git://github.com/gruntjs/grunt-contrib-uglify.git#harmony",
+    "grunt-contrib-uglify-es": "git://github.com/gruntjs/grunt-contrib-uglify.git#harmony",
     "grunt-contrib-watch": "1.0.0",
     "grunt-sails-linker": "~1.0.4",
     "grunt-sync": "0.7.0",

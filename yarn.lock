@@ -660,8 +660,8 @@ coffee-script@~1.10.0:
   resolved "https://registry.yarnpkg.com/coffee-script/-/coffee-script-1.10.0.tgz#12938bcf9be1948fa006f92e0c4c9e81705108c0"
 
 coffeescript@^2.0.1:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/coffeescript/-/coffeescript-2.1.0.tgz#8cb7ce12021ab9f84d8c524f54edbd6141374606"
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/coffeescript/-/coffeescript-2.1.1.tgz#18aefff7ac606a4e32d0ebdfd9afa52b41032bb0"
 
 colors@*, colors@1.1.2, colors@^1.1.2, colors@~1.1.2:
   version "1.1.2"
@@ -1465,7 +1465,7 @@ fstream@^1.0.0, fstream@^1.0.10, fstream@^1.0.2:
     mkdirp ">=0.5 0"
     rimraf "2"
 
-function-bind@^1.0.2, function-bind@^1.1.0:
+function-bind@^1.0.2, function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
 
@@ -1703,6 +1703,15 @@ grunt-contrib-less@1.4.1:
     less "~2.7.1"
     lodash "^4.8.2"
 
+"grunt-contrib-uglify-es@git://github.com/gruntjs/grunt-contrib-uglify.git#harmony", "grunt-contrib-uglify@git://github.com/gruntjs/grunt-contrib-uglify.git#harmony":
+  version "3.3.0"
+  resolved "git://github.com/gruntjs/grunt-contrib-uglify.git#ccb95a70cad6a4e9e902d3bd5d0e38a4de09a1e1"
+  dependencies:
+    chalk "^1.0.0"
+    maxmin "^1.1.0"
+    uglify-es "~3.3.0"
+    uri-path "^1.0.0"
+
 grunt-contrib-uglify@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/grunt-contrib-uglify/-/grunt-contrib-uglify-1.0.1.tgz#ad68411b963b99661211f76f466bdeded4fb07ac"
@@ -1711,24 +1720,6 @@ grunt-contrib-uglify@1.0.1:
     lodash "^4.0.1"
     maxmin "^1.1.0"
     uglify-js "~2.6.2"
-    uri-path "^1.0.0"
-
-grunt-contrib-uglify@3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/grunt-contrib-uglify/-/grunt-contrib-uglify-3.2.1.tgz#8458943eb6053badff829b6f0c9126b1ea624c4a"
-  dependencies:
-    chalk "^1.0.0"
-    maxmin "^1.1.0"
-    uglify-js "~3.2.0"
-    uri-path "^1.0.0"
-
-"grunt-contrib-uglify@git://github.com/gruntjs/grunt-contrib-uglify.git#harmony":
-  version "3.3.0"
-  resolved "git://github.com/gruntjs/grunt-contrib-uglify.git#1b6772845afa687dc4f42f98340d9ea7d757afeb"
-  dependencies:
-    chalk "^1.0.0"
-    maxmin "^1.1.0"
-    uglify-es "~3.3.0"
     uri-path "^1.0.0"
 
 grunt-contrib-watch@1.0.0:
@@ -1891,6 +1882,10 @@ has-color@~0.1.0:
 has-cors@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/has-cors/-/has-cors-1.1.0.tgz#5e474793f7ea9843d1bb99c23eef49ff126fff39"
+
+has-symbols@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/has-symbols/-/has-symbols-1.0.0.tgz#ba1a8f1af2a0fc39650f5c850367704122063b44"
 
 has-unicode@^2.0.0:
   version "2.0.1"
@@ -2820,17 +2815,18 @@ object-hash@~0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/object-hash/-/object-hash-0.3.0.tgz#548208e43b36a44e4da30bad6c56ac53b885e744"
 
-object-keys@^1.0.10, object-keys@^1.0.8:
+object-keys@^1.0.11, object-keys@^1.0.8:
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/object-keys/-/object-keys-1.0.11.tgz#c54601778ad560f1142ce0e01bcca8b56d13426d"
 
 object.assign@^4.0.3:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/object.assign/-/object.assign-4.0.4.tgz#b1c9cc044ef1b9fe63606fc141abbb32e14730cc"
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/object.assign/-/object.assign-4.1.0.tgz#968bf1100d7956bb3ca086f006f846b3bc4008da"
   dependencies:
     define-properties "^1.1.2"
-    function-bind "^1.1.0"
-    object-keys "^1.0.10"
+    function-bind "^1.1.1"
+    has-symbols "^1.0.0"
+    object-keys "^1.0.11"
 
 object.omit@^2.0.0:
   version "2.0.1"
@@ -4264,8 +4260,8 @@ typedarray@^0.0.6, typedarray@~0.0.5:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
 uglify-es@~3.3.0:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/uglify-es/-/uglify-es-3.3.2.tgz#2401df8be2a433314523753f28810793a40c5462"
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/uglify-es/-/uglify-es-3.3.4.tgz#2d592678791e5310456bbc95e952139e3b13167a"
   dependencies:
     commander "~2.12.1"
     source-map "~0.6.1"
@@ -4287,13 +4283,6 @@ uglify-js@~2.6.2:
     source-map "~0.5.1"
     uglify-to-browserify "~1.0.0"
     yargs "~3.10.0"
-
-uglify-js@~3.2.0:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.2.2.tgz#870e4b34ed733d179284f9998efd3293f7fd73f6"
-  dependencies:
-    commander "~2.12.1"
-    source-map "~0.6.1"
 
 uglify-to-browserify@~1.0.0:
   version "1.0.2"
