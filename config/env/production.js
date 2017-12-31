@@ -34,13 +34,13 @@ module.exports = {
     clientID: facebookClientId,
     clientSecret: facebookClientSecret,
     callBackUrl: facebookCallBackUrl
-  }
+  },
 
   /***************************************************************************
    * Set the port in the production environment to 80                        *
    ***************************************************************************/
 
-  // port: 80,
+  port: process.env.PORT || 5000,
 
   /***************************************************************************
    * Set the log level in production environment to "silent"                 *
