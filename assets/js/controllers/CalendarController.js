@@ -1,4 +1,7 @@
-bgnwebapp.controller('CalendarController', ['$scope', '$rootScope', '$location', '$uibModal', '$log', 'toaster', 'CalendarService', 'AuthenticationService', function($scope, $rootScope, $location, $uibModal, $log, toaster, CalendarService, AuthenticationService) {
+bgnwebapp.controller(
+  'CalendarController', 
+  ['$scope', '$rootScope', '$location', '$uibModal', '$log', 'toaster', 'CalendarService', 'AuthenticationService', 'moment', function($scope, $rootScope, $location, $uibModal, $log, toaster, CalendarService, AuthenticationService, moment) 
+{
   $scope.calendar = [];
 
   $scope.alerts = [];
@@ -43,8 +46,10 @@ bgnwebapp.controller('CalendarController', ['$scope', '$rootScope', '$location',
   $scope.canJoin = function (boardgamenight) {
     var currentUser = AuthenticationService.getUser();
     var playersMatching = boardgamenight.players.filter(function (player) { return player.id === currentUser.id });
+    var dateNow = moment();
 
-    return AuthenticationService.isUserAuthenticated() && 
+    return AuthenticationService.isUserAuthenticated() &&
+      moment(boardgamenight.dateTime) > dateNow &&
       boardgamenight.organisator.id !== currentUser.id && 
       boardgamenight.players.length < boardgamenight.availablePlayerCount &&
       playersMatching.length === 0;
@@ -65,7 +70,7 @@ bgnwebapp.controller('CalendarController', ['$scope', '$rootScope', '$location',
         initCalendar();
       })
       .catch(function(error) {
-        toaster.pop('warning', "Can't join table:", error.data, 5000);
+        toaster.pop('warning', "Can't leave table:", error.data, 5000);
       });
   }
 

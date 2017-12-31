@@ -39,6 +39,8 @@ var jsFilesToInject = [
   'bower_components/ngmap/build/scripts/ng-map.min.js',
   'bower_components/angular-animate/angular-animate.min.js',
   'bower_components/AngularJS-Toaster/toaster.min.js',
+  'bower_components/moment/moment.js',
+  'bower_components/angular-moment/angular-moment.min.js',
   'js/dependencies/**/*.js',
 
   // All of the rest of your client-side js files

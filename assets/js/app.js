@@ -1,6 +1,6 @@
 'use strict';
 
-var bgnwebapp = angular.module('bgnwebapp', ['ngRoute', 'ui.bootstrap', 'ngMap', 'toaster', 'ngAnimate']);
+var bgnwebapp = angular.module('bgnwebapp', ['ngRoute', 'ui.bootstrap', 'ngMap', 'toaster', 'ngAnimate', 'angularMoment']);
 
 bgnwebapp.run(['$rootScope', '$window', '$location', 'AuthenticationService', function($rootScope, $window, $location, AuthenticationService) {
   $rootScope.$on('$routeChangeStart', function (event, current, previous) {
