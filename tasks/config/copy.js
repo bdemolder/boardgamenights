@@ -42,6 +42,22 @@ module.exports = function(grunt) {
       files: [
         { expand: true, cwd: '.tmp/public', src: ['**/*'], dest: 'www' }
       ]
+    },
+    prebuild: {
+      files: [{
+        expand: true,
+        cwd: '.tmp/public/min',
+        src: ['**/*'],
+        dest: 'www'
+      }]
+    },
+    fromprebuild: {
+      files: [{
+        expand: true,
+        cwd: 'www',
+        src: ['**/*'],
+        dest: '.tmp/public/min/'
+      }]
     }
   });
 
