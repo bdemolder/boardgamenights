@@ -50,6 +50,7 @@ bgnwebapp.service('CalendarService', ['$http', '$q', function($http, $q) {
       $http.patch('api/boardgamenight/' + boardgamenight.id + "/join").then(function() {
         defer.resolve();
       }, function(err) {
+        console.log(err);
         defer.reject(err);
       });
       return defer.promise;
