@@ -5,6 +5,8 @@
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
+const uuid = require('uuid/v4');
+
 module.exports = {
   attributes: {
     id: {

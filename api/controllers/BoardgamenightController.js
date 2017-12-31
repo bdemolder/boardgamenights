@@ -122,6 +122,35 @@ module.exports = {
           });
         });
       });
+  },
+
+  update: function (req, res) {
+    let boardGameNightId = req.params.id;
+
+    Boardgamenight.findOne({ id: boardGameNightId })
+      .populate('players')
+      .exec(function (err, boardGameNight) {
+        if (err) { return res.serverError(err); }
+        if (!boardGameNight) { return res.notFound('Could not find the board game night.'); }
+
+        let updatedBoardGameNight = req.body;
+        Boardgamenight.update(
+          { id: boardGameNightId },
+          {
+            boardgameName: updatedBoardGameNight.boardgameName,
+            complexity: updatedBoardGameNight.complexity,
+            dateTime: updatedBoardGameNight.dateTime,
+            availablePlayerCount: updatedBoardGameNight.availablePlayerCount,
+            totalPlayerCount: updatedBoardGameNight.totalPlayerCount,
+            street: updatedBoardGameNight.street,
+            postcode: updatedBoardGameNight.postcode,
+            city: updatedBoardGameNight.city
+          }
+        ).exec(function (error, updated) {
+          if (error) { return res.serverError(error); }
+          return res.ok({});
+        });
+      });
   }
-};
+}
 
