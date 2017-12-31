@@ -63,11 +63,11 @@ module.exports.routes = {
     controller: 'UserController',
     action: 'getCurrentUser'
   },
-  'PUT /api/boardgamenight/:id/join': {
+  'PATCH /api/boardgamenight/:id/join': {
     controller: 'BoardgamenightController',
     action: 'join'
   },
-  'PUT /api/boardgamenight/:id/leave': {
+  'PATCH /api/boardgamenight/:id/leave': {
     controller: 'BoardgamenightController',
     action: 'leave'
   }
