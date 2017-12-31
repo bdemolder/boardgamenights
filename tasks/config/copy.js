@@ -48,15 +48,27 @@ module.exports = function(grunt) {
         expand: true,
         cwd: '.tmp/public/min',
         src: ['**/*'],
-        dest: 'www'
+        dest: 'www/public/bin'
+      },
+      {
+        expand: true,
+        cwd: './assets/bower_components/bootstrap/fonts',
+        src: ['./*.!(coffee|less)'],
+        dest: 'www/public/fonts'
       }]
     },
     fromprebuild: {
       files: [{
         expand: true,
-        cwd: 'www',
+        cwd: 'www/public/bin',
         src: ['**/*'],
         dest: '.tmp/public/min/'
+      },
+      {
+        expand: true,
+        cwd: 'www/public/fonts',
+        src: ['./*.!(coffee|less)'],
+        dest: '.tmp/public/fonts/'
       }]
     }
   });
