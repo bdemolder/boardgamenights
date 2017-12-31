@@ -39,7 +39,8 @@
   },
   "scripts": {
     "debug": "node debug app.js",
-    "start": "./node_modules/bower/bin/bower install --config.cwd=./assets && sails lift --prod"
+    "start": "./node_modules/bower/bin/bower install --config.cwd=./assets && sails lift --prod",
+    "lift-prod": "sails lift --prod"
   },
   "main": "app.js",
   "repository": {
