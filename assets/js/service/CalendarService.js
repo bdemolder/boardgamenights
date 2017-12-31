@@ -47,7 +47,7 @@ bgnwebapp.service('CalendarService', ['$http', '$q', function($http, $q) {
     },
     joinBoardGameNight: function(boardgamenight) {
       var defer = $q.defer();
-      $http.patch('api/boardgamenight/' + boardgamenight.id + "/join").then(function() {
+      $http.put('api/boardgamenight/' + boardgamenight.id + "/join").then(function() {
         defer.resolve();
       }, function(err) {
         defer.reject(err);
@@ -56,7 +56,7 @@ bgnwebapp.service('CalendarService', ['$http', '$q', function($http, $q) {
     },
     leaveBoardGameNight: function(boardgamenight) {
       var defer = $q.defer();
-      $http.patch('api/boardgamenight/' + boardgamenight.id + "/leave").then(function() {
+      $http.put('api/boardgamenight/' + boardgamenight.id + "/leave").then(function() {
         defer.resolve();
       }, function(err) {
         defer.reject(err);
