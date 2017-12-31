@@ -1,1 +1,1 @@
-web: npm lift-prod
+web: npm start
