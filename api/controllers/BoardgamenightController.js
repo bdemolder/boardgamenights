@@ -9,6 +9,7 @@ var moment = require('moment');
 const daysInPast = 2;
 const daysInFuture = 35;
 const daysForRejoin = 28;
+const daysForLeave = 7;
 
 // var options = {
 //   timeout: 10000, // timeout of 10s (5s is the default)
@@ -65,6 +66,11 @@ module.exports = {
         if (!boardGameNight) { return res.notFound('Could not find the board game night.'); }
         if (boardGameNight.players.length >= boardGameNight.availablePlayerCount) { return res.forbidden('This board game night is full.'); }
 
+        var dateNow = moment();
+        var dateBoardGameNight = moment(boardGameNight.dateTime);
+
+        if (dateBoardGameNight < dateNow) { return res.forbidden('You cannot join a table in the past.'); }
+
         User.findOne({ id: req.user.id }, function (err, user) {
           if (err) { return res.serverError(err); }
           if (!user) { return res.notFound('Could not find the user.'); }
@@ -110,6 +116,12 @@ module.exports = {
 
         var playersMatching = boardGameNight.players.filter(function (player) { return player.id === req.user.id });
         if (playersMatching === 0) { return res.forbidden('You are not at this table.'); }
+
+        var dateNow = moment();
+        var dateBoardGameNight = moment(boardGameNight.dateTime);
+        var daysDifference = dateBoardGameNight.diff(dateNow, 'days');
+
+        if (daysDifference < daysForLeave) { return res.forbidden('You cannot leave this table when it is within 7 days. Ask the host directly.'); }
 
         User.findOne({ id: req.user.id }, function (err, user) {
           if (err) { return res.serverError(err); }
