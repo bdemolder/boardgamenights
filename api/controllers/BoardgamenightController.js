@@ -84,16 +84,13 @@ module.exports = {
                 '<=': moment().toDate() 
               }
             },
-            limit: 1,
             sort: 'updatedAt DESC'
-          }).populate('boardgamenight', { 
-            where: { 
-              organisator: boardGameNight.organisator
-            }
-          }).exec(function (err, links) {
+          }).populate('boardgamenight')
+          .exec(function (err, links) {
             if (err) { return res.serverError(err); }
 
-            if (links.length > 0) { return res.forbidden('You already joined this host in the last ' + daysForRejoin + ' days.'); }
+            let currentOrganisatorLinks = links.filter(function (link) { return link.boardgamenight.organisator === boardGameNight.organisator });
+            if (currentOrganisatorLinks.length > 0) { return res.forbidden('You already joined this host in the last ' + daysForRejoin + ' days.'); }
 
             boardGameNight.players.add(user.id);
             boardGameNight.save(function(err) {
