@@ -24,7 +24,7 @@
         <td class="seats">
           <div ng-if="!isOwner(boardgamenight)">{{ (boardgamenight.totalPlayerCount - boardgamenight.availablePlayerCount) + boardgamenight.players.length }} / {{ boardgamenight.totalPlayerCount }}</div>
           <div ng-if="isOwner(boardgamenight)" ng-click="openCurrentPlayersModal(boardgamenight)" class="hover-container">
-            <span class="current-players-link">{{ (boardgamenight.totalPlayerCount - boardgamenight.availablePlayerCount) + boardgamenight.players.length +  }} / {{ boardgamenight.totalPlayerCount }}</span>
+            <span class="current-players-link">{{ (boardgamenight.totalPlayerCount - boardgamenight.availablePlayerCount) + boardgamenight.players.length }} / {{ boardgamenight.totalPlayerCount }}</span>
             <div class="middle">
               <div class="eye"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></div>
             </div>
